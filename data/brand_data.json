@@ -1,0 +1,35 @@
+{
+  "brand_info": {
+    "name": "Urban Threadz",
+    "mission": "Sustainable streetwear for the modern creator.",
+    "return_policy": "30-day returns on unworn items with tags. Free return shipping for orders over $100.",
+    "contact_email": "support@urbanthreadz.com",
+    "shipping_time": "Standard: 3-5 business days. Express: 1-2 business days."
+  },
+  "products": [
+    {
+      "id": "UT-001",
+      "name": "Midnight Oversized Hoodie",
+      "price": "$85",
+      "sizes": ["S", "M", "L", "XL"],
+      "stock": "In Stock",
+      "description": "Heavyweight 400gsm cotton fleece in jet black. Drop shoulder fit with puff print logo."
+    },
+    {
+      "id": "UT-002",
+      "name": "Cyberpunk Cargo Joggers",
+      "price": "$65",
+      "sizes": ["M", "L", "XL"],
+      "stock": "Low Stock",
+      "description": "Water-resistant nylon techwear pants with 6 functional pockets and adjustable ankle straps."
+    },
+    {
+      "id": "UT-003",
+      "name": "Neon Graffiti Tee",
+      "price": "$35",
+      "sizes": ["S", "M", "L", "XL", "XXL"],
+      "stock": "In Stock",
+      "description": "100% organic cotton white tee with neon pink and blue back print."
+    }
+  ]
+}
