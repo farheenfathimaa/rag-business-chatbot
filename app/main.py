@@ -90,5 +90,9 @@ def run_app():
 
     if query:
         add_message("user", query)
-        answer = real_rag_answer(query, role)
+        
+        with st.spinner("🤔 Thinking..."):
+            answer = real_rag_answer(query, role)
+        
         add_message("assistant", answer)
+        st.rerun()  # ✅ CRITICAL: Force UI refresh to show new messages

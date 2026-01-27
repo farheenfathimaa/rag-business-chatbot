@@ -15,8 +15,8 @@ def load_document(file_path: str):
         loader = PyMuPDFLoader(file_path)
     elif ext == ".txt":
         loader = TextLoader(file_path, encoding="utf-8")
-    elif ext == "docx":
-            loader = Docx2txtLoader(file_path)
+    elif ext == ".docx":
+        loader = Docx2txtLoader(file_path)
     else:
         raise ValueError(f"Unsupported file type: {ext}")
 

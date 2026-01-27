@@ -24,13 +24,26 @@ def load_vectorstore(business_id: str):
     return vs
 
 def get_retriever(business_id: str, role: str):
+    """
+    Get retriever with proper access control.
+    
+    Role mapping:
+    - 'user' role → can access 'public' documents
+    - 'admin' role → can access both 'public' AND 'admin' documents
+    """
     vectorstore = load_vectorstore(business_id)
 
-    # Adding the 'filter' ensures that the search only looks at 
-    # documents the current role is allowed to see.
-    return vectorstore.as_retriever(
-        search_kwargs={
-            "k": 4,
-            "filter": {"access": role} 
-        }
-    )
+    # Map user role to document access level
+    if role == "admin":
+        # Admin can see everything - no filter needed
+        return vectorstore.as_retriever(
+            search_kwargs={"k": 4}
+        )
+    else:
+        # Regular users only see public documents
+        return vectorstore.as_retriever(
+            search_kwargs={
+                "k": 4,
+                "filter": {"access": "public"}
+            }
+        )

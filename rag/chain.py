@@ -14,13 +14,15 @@ def build_rag_chain(retriever, llm):
     )
 
 def run_rag(retriever, query: str):
-    # try:
-    #     chain = build_rag_chain(retriever, get_primary_llm())
-    #     return chain.run(query)
-    # except Exception as e:
-    #     print(f"[WARN] Primary LLM failed: {e}")
-    #     fallback_chain = build_rag_chain(retriever, get_fallback_llm())
-    #     return fallback_chain.run(query)
-    def run_rag(retriever, query: str):
+    """Run RAG pipeline with primary LLM and fallback support"""
+    try:
         chain = build_rag_chain(retriever, get_primary_llm())
         return chain.run(query)
+    except Exception as e:
+        print(f"[WARN] Primary LLM failed: {e}")
+        fallback_llm = get_fallback_llm()
+        if fallback_llm:
+            fallback_chain = build_rag_chain(retriever, fallback_llm)
+            return fallback_chain.run(query)
+        else:
+            raise e

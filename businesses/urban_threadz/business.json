@@ -1,19 +1,16 @@
 {
   "business_id": "urban_threadz",
-  "business_name": "Urban Threadz Pvt. Ltd.",
-  "industry": "Clothing & Fashion",
-  "package": "standard",
-  "branding": {
-    "primary_color": "#1f2937",
-    "accent_color": "#f97316",
-    "logo": "logo.png"
-  },
-  "llm_config": {
-    "primary": "groq",
-    "fallback": "gemini"
-  },
-  "access": {
-    "public_enabled": true,
-    "admin_enabled": true
+  "business_name": "Urban Threadz",
+  "industry": "Fashion & Apparel",
+  "description": "Contemporary sustainable streetwear brand",
+  "founded": "2020",
+  "logo_url": "https://via.placeholder.com/150?text=Urban+Threadz",
+  "website": "www.urbanthreadz.com",
+  "tone": "friendly, professional, eco-conscious",
+  "target_audience": "Young adults aged 18-35 interested in sustainable fashion",
+  "contact": {
+    "email": "support@urbanthreadz.com",
+    "phone": "1-800-THREADZ",
+    "address": "123 Main Street, New York, NY 10001"
   }
 }

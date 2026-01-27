@@ -12,7 +12,8 @@ services:
     env_file:
       - .env
     volumes:
-      - .:/app
       - ./vector_db:/app/vector_db
       - ./businesses:/app/businesses
-    command: streamlit run app/main.py --server.port=8501 --server.address=0.0.0.0
+    restart: unless-stopped
+    environment:
+      - PYTHONUNBUFFERED=1
