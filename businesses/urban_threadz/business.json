@@ -4,10 +4,19 @@
   "industry": "Fashion & Apparel",
   "description": "Contemporary sustainable streetwear brand",
   "founded": "2020",
-  "logo_url": "https://via.placeholder.com/150?text=Urban+Threadz",
-  "website": "www.urbanthreadz.com",
+
+  "branding": {
+    "logo_url": "https://drive.google.com/uc?id=1HQCR70hdr_s2T1wXGuV8QOVoLG7dLop8",
+    "primary_color": "#1F7A4D",
+    "secondary_color": "#0E1117",
+    "accent_color": "#C2A875",
+    "background": "dark"
+  },
+
+  "website": "https://www.urbanthreadz.com",
   "tone": "friendly, professional, eco-conscious",
   "target_audience": "Young adults aged 18-35 interested in sustainable fashion",
+
   "contact": {
     "email": "support@urbanthreadz.com",
     "phone": "1-800-THREADZ",

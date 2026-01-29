@@ -84,3 +84,5 @@ desktop.ini
 *.tmp
 *.temp
 vector_db/
+
+changes/

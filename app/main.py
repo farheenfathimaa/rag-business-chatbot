@@ -2,7 +2,7 @@ import os
 import streamlit as st
 
 from app.auth import login
-from app.ui import render_chat_ui, add_message
+from app.ui import render_chat_ui, add_message, load_business_config
 from app.config import BUSINESS_ID, PACKAGE_FEATURES, PACKAGE_TYPE
 
 from ingestion.ingest import ingest_files
@@ -46,7 +46,10 @@ def real_rag_answer(query, role):
 
 
 def run_app():
+    
     st.set_page_config(page_title="RAG Business Chatbot", layout="centered")
+
+    business_config = load_business_config(BUSINESS_ID)
 
     # Auto-ingest once per session
     if "auto_ingested" not in st.session_state:
@@ -86,7 +89,7 @@ def run_app():
     # ===============================
     # CHAT SECTION
     # ===============================
-    query = render_chat_ui()
+    query = render_chat_ui(business_config)
 
     if query:
         add_message("user", query)
@@ -96,3 +99,14 @@ def run_app():
         
         add_message("assistant", answer)
         st.rerun()  # ✅ CRITICAL: Force UI refresh to show new messages
+
+    def logout():
+        for key in list(st.session_state.keys()):
+            del st.session_state[key]
+        st.rerun()
+    
+    if st.session_state.get("logged_in"):
+        with st.sidebar:
+            st.markdown("### 🔐 Session")
+            st.write(f"Role: **{st.session_state['role']}**")
+            st.button("🚪 Logout", on_click=logout)

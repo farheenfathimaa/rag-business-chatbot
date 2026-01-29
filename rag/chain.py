@@ -13,11 +13,14 @@ def build_rag_chain(retriever, llm):
         return_source_documents=False
     )
 
-def run_rag(retriever, query: str):
+def run_rag(retriever, query: str, role=None):
     """Run RAG pipeline with primary LLM and fallback support"""
     try:
         chain = build_rag_chain(retriever, get_primary_llm())
-        return chain.run(query)
+        return chain.run({
+            "query": query,
+            "role": "user"
+        })
     except Exception as e:
         print(f"[WARN] Primary LLM failed: {e}")
         fallback_llm = get_fallback_llm()

@@ -5,7 +5,7 @@ from app.config import GROQ_API_KEY
 def get_groq_llm():
     return ChatGroq(
         groq_api_key=GROQ_API_KEY,
-        model_name="llama3-70b-8192",
+        model_name="llama-3.1-8b-instant",
         temperature=0
     )
 
